@@ -4,16 +4,16 @@
 
 # Site
 title: 破茧
-subtitle: 人生重要的不是所站的位置，而是所朝的方向。
-description:
-keywords:
+subtitle: 路漫漫其修远兮，吾将上下而求索
+description: 研究Web前端开发技术和互联网产品
+keywords: web前端,javascript,node,jquery,git,python,java,sql,linux,ios,bitcoin,教程,软件,编程,开发,运维,云计算,网络
 author: PAN
 language: zh-CN
-timezone:
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://pojian.xyz
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -75,11 +75,30 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+baidu_url_submit:
+  count: 3 ## 提交最新的一个链接
+  host: pojian.xyz ## 在百度站长平台中注册的域名
+  token: 3GIEYsuq5ZTkvDBm ## 请注意这是您的秘钥，所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: 
-    github: https://github.com/webw3c/webw3c.github.io.git
-    coding: https://git.dev.tencent.com/yusting/yusting.coding.me.git
-  branch: master
+  - type: git
+    repo:
+      github: https://github.com/webw3c/webw3c.github.io.git
+      coding: https://git.dev.tencent.com/yusting/yusting.coding.me.git
+  - type: baidu_url_submitter
+
+# 文章字数统计
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+
+# sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
