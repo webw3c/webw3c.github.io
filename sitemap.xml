@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pojian.xyz/about/index.html</loc>
+    
+    <lastmod>2020-09-24T04:24:01.142Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pojian.xyz/2019/01/18/hexo/</loc>
     
     <lastmod>2020-09-24T04:05:56.377Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://pojian.xyz/categories/index.html</loc>
     
     <lastmod>2020-09-24T03:07:57.197Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pojian.xyz/about/index.html</loc>
-    
-    <lastmod>2020-09-24T03:07:57.196Z</lastmod>
     
   </url>
   
