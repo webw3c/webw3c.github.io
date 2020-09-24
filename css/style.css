@@ -401,6 +401,16 @@ th {
 .cover-wrapper .cover-body .title {
   font-weight: 700;
 }
+.l_header {
+  max-width: 1080px !important;
+  left: calc((100% - 1080px) * 0.5) !important;
+}
+.l_body {
+  background: url("https://i.loli.net/2020/09/25/OBL5g1zxb7Aq6wp.gif");
+}
+.cover-wrapper .cover-body .title {
+  text-shadow: 1px 1px 0 #ff3f1a, -1px -1px 0 #00a7e0 !important;
+}
 .article span.btn,
 .md span.btn {
   display: inline;
