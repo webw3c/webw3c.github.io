@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="gjDw6lF0UZmsmj9X8aaFj-oMIUn_xNtKWBjlTAsaE38">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hcpV6kBYO1">
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言React Hooks 是 React v16.8 版本中引入的新特性，阅读本文需要一定的 React 基础。 一、Hooks 出现的原因React 的核心是组件。v16.8 版本之前，组件的标准写法是类，还有一种就是函数式组件或者(说是无状态组件)。 类组件下面是一个简单的类组件示例： 12345678910111213141516171819import React, &amp;#123; Com">
+<meta name="keywords" content="web前端,javascript,node,jquery,git,python,java,sql,linux,ios,bitcoin,教程,软件,编程,开发,运维,云计算,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Hooks 入门">
+<meta property="og:url" content="https://pojian.xyz/2019/09/03/reacthooks/index.html">
+<meta property="og:site_name" content="破茧">
+<meta property="og:description" content="前言React Hooks 是 React v16.8 版本中引入的新特性，阅读本文需要一定的 React 基础。 一、Hooks 出现的原因React 的核心是组件。v16.8 版本之前，组件的标准写法是类，还有一种就是函数式组件或者(说是无状态组件)。 类组件下面是一个简单的类组件示例： 12345678910111213141516171819import React, &amp;#123; Com">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-03T10:20:08.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Hooks 入门">
+<meta name="twitter:description" content="前言React Hooks 是 React v16.8 版本中引入的新特性，阅读本文需要一定的 React 基础。 一、Hooks 出现的原因React 的核心是组件。v16.8 版本之前，组件的标准写法是类，还有一种就是函数式组件或者(说是无状态组件)。 类组件下面是一个简单的类组件示例： 12345678910111213141516171819import React, &amp;#123; Com">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="破茧 研究Web前端开发技术和互联网产品" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://pojian.xyz/2019/09/03/reacthooks/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>React Hooks 入门 | 破茧 研究Web前端开发技术和互联网产品</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f49309b283909dccd81a5283f87d4cb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">破茧</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">路漫漫其修远兮，吾将上下而求索</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pojian.xyz/2019/09/03/reacthooks/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PAN">
+      <meta itemprop="description" content="研究Web前端开发技术和互联网产品">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/8156261?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="破茧 研究Web前端开发技术和互联网产品">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">React Hooks 入门
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-03 15:53:13 / 修改时间：18:20:08" itemprop="dateCreated datePublished" datetime="2019-09-03T15:53:13+08:00">2019-09-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">7 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://reactjs.org/docs/hooks-reference.html" target="_blank" rel="noopener">React Hooks</a> 是 React v16.8 版本中引入的新特性，阅读本文需要一定的 React 基础。</p>
+<h2 id="一、Hooks-出现的原因"><a href="#一、Hooks-出现的原因" class="headerlink" title="一、Hooks 出现的原因"></a>一、Hooks 出现的原因</h2><p>React 的核心是组件。v16.8 版本之前，组件的标准写法是类，还有一种就是函数式组件或者(说是无状态组件)。</p>
+<h3 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h3><p>下面是一个简单的类组件示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123; <span class="attr">count</span>: <span class="number">0</span> &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;点击了 &#123; <span class="keyword">this</span>.state.count &#125; 次&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123; this.addCount.bind(this) &#125;&gt;确定&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  addCount() &#123;</span></span><br><span class="line"><span class="regexp">    this.setState(&#123; count: this.state.count+1 &#125;)</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">export default Demo;</span></span><br></pre></td></tr></table></figure>
+<p>组件类的几个缺点：</p>
+<ul>
+<li>大型组件很难拆分和重构，也很难测试。</li>
+<li>业务逻辑分散在组件的各个方法之中，导致重复逻辑或关联逻辑。</li>
+<li>组件类引入了复杂的编程模式，比如 render props 和高阶组件。</li>
+</ul>
+<h3 id="无状态组件"><a href="#无状态组件" class="headerlink" title="无状态组件"></a>无状态组件</h3><p>要求必须是一个纯函数，不能包含状态，不支持生命周期方法。</p>
+<h3 id="React-Hooks-设计目的"><a href="#React-Hooks-设计目的" class="headerlink" title="React Hooks 设计目的"></a>React Hooks 设计目的</h3><p>所以 React Hooks 的设计目的，就是加强版函数组件，完全不使用”类”，就能写出一个全功能的组件。 </p>
+<h2 id="二、Hook-的含义"><a href="#二、Hook-的含义" class="headerlink" title="二、Hook 的含义"></a>二、Hook 的含义</h2><p>Hook 这个单词的意思是”钩子”。<br>React Hooks 的意思是，组件尽量写成纯函数，如果需要外部功能和副作用，就用钩子把外部代码”钩”进来。 React Hooks 就是那些钩子。</p>
+<p>你需要什么功能，就使用什么钩子。React 默认提供了一些常用钩子，你也可以封装自己的钩子。</p>
+<p>所有的钩子都是为函数引入外部功能，所以 React 约定，钩子一律使用use前缀命名，便于识别。你要使用 xxx 功能，钩子就命名为 usexxx。</p>
+<p>下面介绍 React 默认提供的四个最常用的钩子。</p>
+<ul>
+<li>useState()</li>
+<li>useContext()</li>
+<li>useReducer()</li>
+<li>useEffect()</li>
+</ul>
+<h2 id="三、useState-：状态钩子"><a href="#三、useState-：状态钩子" class="headerlink" title="三、useState()：状态钩子"></a>三、useState()：状态钩子</h2><p>useState()用于为函数组件引入状态（state）。纯函数不能有状态，所以把状态放在钩子里面。</p>
+<p>本文前面那个组件类，用户点击按钮，会导致按钮的文字改变，文字取决于用户是否点击，这就是状态。使用useState()重写如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Demo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [ count, addCount ] = useState(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;点击了 &#123; count &#125; 次&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;()=&gt;&#123; addCount(count+1) &#125;&#125;&gt;确定&lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Demo;</span></span><br></pre></td></tr></table></figure>
+<p>useState() 函数接受状态的初始值，作为参数，上例的初始值为要展示的数值0。该函数返回一个长度为2的数组，数组的第一个值是一个变量（上例是count），指向状态的当前值。第二个值是一个函数，用来更新状态。</p>
+<p><strong> useState 使用注意 </strong><br>useState 的执行顺序在每一次更新渲染时必须保持一致，否则多个 useState 调用将不会得到各自独立的状态，也会造成状态对应混乱。比如在条件判断中使用 hook，在循环，嵌套函数中使用 hook，都会造成 hook 执行顺序不一致的问题。最后导致状态的混乱。另外，所有的状态声明都应该放在函数顶部，首先声明。</p>
+<h2 id="四、useContext-：共享状态钩子"><a href="#四、useContext-：共享状态钩子" class="headerlink" title="四、useContext()：共享状态钩子"></a>四、useContext()：共享状态钩子</h2><p>如果需要在组件之间共享状态，可以使用useContext()。</p>
+<p>现在有两个组件 Navbar 和 Messages，我们希望它们之间共享状态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; createContext, useContext &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个共享状态</span></span><br><span class="line"><span class="keyword">const</span> UserContext = createContext(&#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Navbar = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// useContext() 钩子函数用来引入 Context 对象，从中获取username属性。</span></span><br><span class="line">  <span class="keyword">const</span> &#123; username &#125; = useContext(UserContext)</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;A 组件里的用户：&#123; username &#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Messages = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ useContext() 钩子函数用来引入 Context 对象，从中获取username属性。</span></span><br><span class="line"><span class="regexp">  const &#123; username &#125; = useContext(UserContext)</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;div&gt;B 组件里的用户：&#123; username &#125;&lt;/</span>div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="comment">// UserContext.Provider提供了一个 Context 状态共享对象，这个对象可以被子组件共享。</span></span><br><span class="line">    &lt;UserContext.Provider value=&#123;&#123; <span class="attr">username</span>: <span class="string">'PAN~~~'</span> &#125;&#125;&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Navbar /&gt;</span><br><span class="line">        &lt;Messages /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>UserContext.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="五、useReducer-：action-钩子"><a href="#五、useReducer-：action-钩子" class="headerlink" title="五、useReducer()：action 钩子"></a>五、useReducer()：action 钩子</h2><p>React 本身不提供状态管理功能，通常需要使用外部库。这方面最常用的库是 Redux。</p>
+<p>Redux 的核心概念是，组件发出 action 与状态管理器通信(store)。状态管理器收到 action 以后，使用 Reducer 函数算出新的状态，然后再返回给状态 管理通信器，Reducer 函数的形式是(state, action) =&gt; newState。</p>
+<p>useReducers()钩子用来引入 Reducer 功能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [state, dispatch] = useReducer(reducer, initialState);</span><br></pre></td></tr></table></figure>
+<p>useReducer() 接收 Reducer 函数和状态的初始值作为参数，返回一个数组。数组的第一个成员是状态的当前值，第二个成员是发送 action 的 dispatch 函数。</p>
+<p>下面看一个简单的计数器效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useReducer &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于计算状态的 Reducer 函数</span></span><br><span class="line"><span class="keyword">const</span> myReducer = <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span>(<span class="string">'countUp'</span>):</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        count: state.count + <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = useReducer(myReducer, &#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; dispatch(&#123; <span class="attr">type</span>: <span class="string">'countUp'</span> &#125;)&#125;&gt;</span><br><span class="line">        +<span class="number">1</span></span><br><span class="line">      &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;p&gt;Count: &#123;state.count&#125;&lt;/</span>p&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
+<h2 id="六、useEffect-：副作用钩子"><a href="#六、useEffect-：副作用钩子" class="headerlink" title="六、useEffect()：副作用钩子"></a>六、useEffect()：副作用钩子</h2><p>useEffect()用来引入具有副作用的操作，最常见的就是向服务器请求数据。以前，放在componentDidMount里面的代码，现在可以放在useEffect()。具体用法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span>  =&gt;</span>  &#123;</span><br><span class="line">  <span class="comment">// Async Action</span></span><br><span class="line">&#125;, [dependencies])</span><br></pre></td></tr></table></figure>
+<p>上面用法中，useEffect()接受两个参数。第一个参数是一个函数，异步操作的代码放在里面。第二个参数是一个数组，用于给出 Effect 的依赖项，只要这个数组发生变化，useEffect()就会执行。</p>
+<p><strong> 注意 </strong><br>第二个参数可以省略，这时每次组件渲染时，就会执行useEffect()。</p>
+<p>下面看一下实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Person = <span class="function">(<span class="params">&#123; personId &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = useState(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">const</span> [person, setPerson] = useState(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setLoading(<span class="literal">true</span>);</span><br><span class="line">    fetch(<span class="string">`https://easy-mock.com/mock/5d53bf7452cb451e4e23fd53/study/getPerson?id=<span class="subst">$&#123;personId&#125;</span>`</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'First Loading...'</span>)</span><br><span class="line">        setPerson(data.data);</span><br><span class="line">        setLoading(<span class="literal">false</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;, [personId]);</span><br><span class="line">  <span class="comment">// 每当组件参数personId发生变化，useEffect()就会执行。</span></span><br><span class="line">  <span class="comment">// 组件第一次渲染时，useEffect()也会执行。</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (loading === <span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;p&gt;Loading ...&lt;/p&gt;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;姓名: &#123;person.name&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;p&gt;年龄: &#123;person.age&#125;&lt;/</span>p&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">function App() &#123;</span></span><br><span class="line"><span class="regexp">  const [show, setShow] = useState("1");</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;div className="App"&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Person personId=&#123;show&#125; /</span>&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; setShow(<span class="string">"1"</span>)&#125;&gt;Person <span class="number">1</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;() =&gt; setShow("2")&#125;&gt;Person 2&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="七、创建自己的-Hooks"><a href="#七、创建自己的-Hooks" class="headerlink" title="七、创建自己的 Hooks"></a>七、创建自己的 Hooks</h2><p>下面的示例以上面的例子为基础，自定义一个 Hooks，usePerson()就是一个自定义的 Hook。</p>
+<p>Person 组件就改用这个新的钩子，引入封装的逻辑。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> usePerson = <span class="function"><span class="params">personId</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = useState(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">const</span> [person, setPerson] = useState(&#123;&#125;);</span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setLoading(<span class="literal">true</span>);</span><br><span class="line">    fetch(<span class="string">`https://easy-mock.com/mock/5d53bf7452cb451e4e23fd53/study/getPerson?id=<span class="subst">$&#123;personId&#125;</span>`</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        setPerson(data.data);</span><br><span class="line">        setLoading(<span class="literal">false</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;, [personId]);</span><br><span class="line">  <span class="comment">// 返回</span></span><br><span class="line">  <span class="keyword">return</span> [loading, person];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Person = <span class="function">(<span class="params">&#123; personId &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [loading, person] = usePerson(personId);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (loading === <span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;p&gt;Loading ...&lt;/p&gt;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;姓名: &#123;person.name&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;p&gt;年龄: &#123;person.age&#125;&lt;/</span>p&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">function App() &#123;</span></span><br><span class="line"><span class="regexp">  const [show, setShow] = useState("1");</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;div className="App"&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Person personId=&#123;show&#125; /</span>&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; setShow(<span class="string">"1"</span>)&#125;&gt;Person <span class="number">1</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;() =&gt; setShow("2")&#125;&gt;Person 2&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<p>（完）</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/24/wechatnoaccess/" rel="next" title="非微信官方网页，继续访问将转换成手机预览模式">
+                <i class="fa fa-chevron-left"></i> 非微信官方网页，继续访问将转换成手机预览模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars1.githubusercontent.com/u/8156261?s=460&v=4" alt="PAN">
+            
+              <p class="site-author-name" itemprop="name">PAN</p>
+              <p class="site-description motion-element" itemprop="description">研究Web前端开发技术和互联网产品</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/webw3c" title="GitHub &rarr; https://github.com/webw3c" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:719625504@qq.com" title="E-Mail &rarr; mailto:719625504@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Hooks-出现的原因"><span class="nav-number">2.</span> <span class="nav-text">一、Hooks 出现的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类组件"><span class="nav-number">2.1.</span> <span class="nav-text">类组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无状态组件"><span class="nav-number">2.2.</span> <span class="nav-text">无状态组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-Hooks-设计目的"><span class="nav-number">2.3.</span> <span class="nav-text">React Hooks 设计目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Hook-的含义"><span class="nav-number">3.</span> <span class="nav-text">二、Hook 的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、useState-：状态钩子"><span class="nav-number">4.</span> <span class="nav-text">三、useState()：状态钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、useContext-：共享状态钩子"><span class="nav-number">5.</span> <span class="nav-text">四、useContext()：共享状态钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、useReducer-：action-钩子"><span class="nav-number">6.</span> <span class="nav-text">五、useReducer()：action 钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、useEffect-：副作用钩子"><span class="nav-number">7.</span> <span class="nav-text">六、useEffect()：副作用钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、创建自己的-Hooks"><span class="nav-number">8.</span> <span class="nav-text">七、创建自己的 Hooks</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PAN</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">23k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">21 分钟</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span>总访客量</span>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span>总访问量</span>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+   <script>
+        var gitalk = new Gitalk({
+          clientID: '3f2ae8c2ff9426b6d2ac',
+          clientSecret: '950cef50c68eeeb9b148afba5740f4d706a78ccc',
+          repo: 'webw3c.github.io',
+          owner: 'webw3c',
+          admin: ['webw3c'],
+          id: md5(location.pathname),
+          distractionFreeMode: ''
+        })
+        gitalk.render('gitalk-container')
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
