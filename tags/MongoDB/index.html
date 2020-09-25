@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：SSH - 乘风之歌</title>
+  <title>标签：MongoDB - 乘风之歌</title>
   
 
   
@@ -460,23 +460,34 @@
   
     
     <h2 class="article-title" >
-      <a href="/2019/01/22/macsshconnection/">
-        解决Mac下SSH闲时自动断开的问题
+      <a href="/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/">
+        MongoDB教程
       </a>
     </h2>
   
   <div class='md'>
     
       
-        使用 Mac 自带终端 SSH 连接服务器时，只要隔一小段时间不进行操作的话连接就会自动中断，造成了不好的体验。解决方法如下：
-1、连接到你的服务器
-2、编辑服务端配置文件 /etc/ssh/sshd_config
-1vim /etc/ssh/sshd_config
+        一、基本命令启动数据库
+1mongod
 
-添加以下两行配置代码
-12ClientAliveInterval 30ClientAliveCountMax 3
+进入 mongo 命令环境
+1mongo
 
-3、编辑...
+显示所有数据库
+1show dbs
+
+使用某个数据库，如果当前不存在这个数据库的话会自动新建
+1use 数据库名称
+
+显示数据库内的集合
+1show collections
+
+当前在哪个库中
+1db
+
+CRUD操作 可查看官网文档
+新建数据集合和插入数据，比如当前在 test01 数据库中。插入数据会自动生...
       
     
   </div>
@@ -487,15 +498,15 @@
           
           <a class='avatar' href='/'><img src='https://i.loli.net/2020/09/25/RVKnjUAof6kryGi.png'></a>
         
-        <time>2019-01-22</time>
+        <time>2019-02-20</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Mac/">Mac</a>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2019/01/22/macsshconnection/'>
+          <a class='readmore' href='/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/'>
             阅读全文
           </a>
         </div>

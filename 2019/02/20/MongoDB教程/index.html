@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.4'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <!-- 页面元数据 -->
+  
+  <title>MongoDB教程 - 乘风之歌</title>
+  
+    <meta name="keywords" content="MongoDB">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="乘风之歌" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
+
+  
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  <!-- 脚本懒加载函数 -->
+  <script>
+  function loadScript(src, cb) {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    if (cb) script.onload = cb;
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  }
+  //https://github.com/filamentgroup/loadCSS
+  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
+  </script>
+  <script id="loadcss"></script>
+</head>
+
+<body>
+  <header class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            乘风之歌
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+  
+    
+    
+        <div class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">乘风之歌</p>
+    
+    
+      <p class="subtitle">生命有限，和时间赛跑</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/categories"
+              
+              
+              id="categories">
+              <p>分类</p>
+            </a>
+          
+            <a href="/tags"
+              
+              
+              id="tags">
+              <p>标签</p>
+            </a>
+          
+            <a href="/archives"
+              
+              
+              id="archives">
+              <p>归档</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <p>友链</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <p>关于</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+  
+    <div class='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">MongoDB教程</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path"></div> 
+  <div id="pjax-comment-placeholder"></div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "half") { // 半屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "full") { // 全屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+ 
+
+        
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        MongoDB教程
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://i.loli.net/2020/09/25/RVKnjUAof6kryGi.png">
+    <p>乘风</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年2月20日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="MongoDB教程" data-path="/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h2 id="一、基本命令"><a href="#一、基本命令" class="headerlink" title="一、基本命令"></a>一、基本命令</h2><p>启动数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure>
+
+<p>进入 mongo 命令环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br></pre></td></tr></table></figure>
+
+<p>显示所有数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
+
+<p>使用某个数据库，如果当前不存在这个数据库的话会自动新建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名称</span><br></pre></td></tr></table></figure>
+
+<p>显示数据库内的集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
+
+<p>当前在哪个库中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db</span><br></pre></td></tr></table></figure>
+
+<p>CRUD操作 可查看<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/crud/">官网文档</a></p>
+<h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><p>数据集合和插入数据，比如当前在 test01 数据库中。<br>插入数据会自动生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use test01     &#x2F;&#x2F; 如果当前没有 test01 数据库则会自动新建  </span><br><span class="line">show dbs       &#x2F;&#x2F; 如果 test01 是空白的，使用这个命令 test01 不会显示在结果列表中，必须不是空的才能显示  </span><br><span class="line">db.user.insert(&#123;&quot;name&quot;:&quot;PAN&quot;, &quot;age&quot;:&quot;18&quot;, &quot;job&quot;:&quot;web engineer&quot;&#125;)   &#x2F;&#x2F; 在 test01 中插入一个名为 user 的集合  </span><br><span class="line">db.user.insert(&#123;&quot;name&quot;:&quot;TING&quot;, &quot;age&quot;:&quot;16&quot;, &quot;job&quot;:&quot;seo manerge&quot;&#125;)   &#x2F;&#x2F; 再插入一条数据  </span><br></pre></td></tr></table></figure>
+
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.user.find()    &#x2F;&#x2F; 查找 user 中的所有数据，这样就可以查看刚刚上面添加的那两条数据了</span><br><span class="line">db.user.find().count()  &#x2F;&#x2F; 长度</span><br><span class="line">db.user.findOne() &#x2F;&#x2F; 查找集合中符合条件的第一条数据</span><br><span class="line">&#x2F;&#x2F; db.user.findOnd(&#123;age:18&#125;).name</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>db.集合.updata({条件查询}, {修改})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.update(&#123;&quot;name&quot;:&quot;YU&quot;&#125;,&#123;&quot;name&quot;:&quot;YONGYU&quot;, &quot;age&quot;:&quot;19&quot;&#125;)  &#x2F;&#x2F; 需要注意修改的新对象会直接覆盖原来的旧的对象。如果是需要修改指定的属性而不是替换旧对象，参考下面关于updata修改器的教程</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>db.集合.remove({条件})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.remove(&#123;&quot;name&quot;:&quot;001&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h3><p>db.collection.drop()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.test01.drop()  &#x2F;&#x2F; 返回 true 表示成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p>db.dropDatabase()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、用JS写mongo语句"><a href="#二、用JS写mongo语句" class="headerlink" title="二、用JS写mongo语句"></a>二、用JS写mongo语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var userName &#x3D; &quot;TINGER&quot;; &#x2F;&#x2F; 定义用户名</span><br><span class="line">var timeStamp &#x3D; Date.parse(new Date()); &#x2F;&#x2F; 定义时间戳</span><br><span class="line">var jsonDatabase &#x3D; &#123;&quot;username&quot;: userName, &quot;loginTime&quot;: timeStamp&#125; &#x2F;&#x2F; 要插入的数据</span><br><span class="line">var db &#x3D; connect(&#39;test01&#39;);  &#x2F;&#x2F; 链接 test01 数据库</span><br><span class="line">db.user.insert(jsonDatabase); &#x2F;&#x2F; user 集合插入数据</span><br><span class="line"></span><br><span class="line">print(&#39;[log]:: print success!&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、批量插入"><a href="#三、批量插入" class="headerlink" title="三、批量插入"></a>三、批量插入</h2><p>如果是3.2以前版本则需要使用 batchInsert()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br><span class="line">use test02</span><br><span class="line">db.test02.insert([&#123;&quot;_id&quot;:1&#125;,&#123;&quot;_id&quot;:2&#125;,&#123;&quot;_id&quot;:3&#125;])</span><br><span class="line">db.test02.find()    &#x2F;&#x2F; 查看插入结果</span><br></pre></td></tr></table></figure>
+
+<p>插入性能测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var startTime &#x3D; (new Date()).getTime();</span><br><span class="line">var db &#x3D; connect(&#39;test02&#39;); &#x2F;&#x2F; 链接数据库</span><br><span class="line">var tempArr &#x3D; [];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 循环插入（不建议）</span><br><span class="line">&#x2F;&#x2F; for(let i&#x3D;0; i&lt;1000; i++)&#123;</span><br><span class="line">&#x2F;&#x2F;   db.user.insert(&#123;num:1&#125;)</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 性能优化</span><br><span class="line">for(let i&#x3D;0; i&lt;1000; i++)&#123;</span><br><span class="line">  tempArr.push(&#123;num:1&#125;)</span><br><span class="line">&#125;</span><br><span class="line">db.user.insert(tempArr);</span><br><span class="line"></span><br><span class="line">var runTime &#x3D; (new Date()).getTime() - startTime;</span><br><span class="line"></span><br><span class="line">print(&#39;[log]:: runtime is &#39;+runTime+&#39;ms&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、update-修改器"><a href="#四、update-修改器" class="headerlink" title="四、update 修改器"></a>四、update 修改器</h2><p>$set 修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;&quot;$set&quot;:&#123;&quot;age&quot;:20&#125;&#125;) &#x2F;&#x2F; 修改 age</span><br><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;&quot;$set&quot;:&#123;&quot;skill.s1&quot;:&quot;Excel&quot;&#125;&#125;)  &#x2F;&#x2F; 修改嵌套的s1。 skill.s1</span><br></pre></td></tr></table></figure>
+
+<p>$unset 删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;&quot;$unset&quot;:&#123;&quot;age&quot;:&#39;&#39;&#125;&#125;)  &#x2F;&#x2F; 删除age年龄。age 的值随便写，$unset 时只关心 key</span><br><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;&quot;$set&quot;:&#123;&quot;age&quot;:20&#125;&#125;)  &#x2F;&#x2F; 重新添加 age。$set 当修改的属性为空时会自己添加</span><br></pre></td></tr></table></figure>
+
+<p>$inc 对数字进行计算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;&quot;$inc&quot;:&#123;&quot;age&quot;:-2&#125;&#125;)  &#x2F;&#x2F; age 由原来的值减2</span><br></pre></td></tr></table></figure>
+
+<p>multi选项，有 true 和 false 两个值。默认 false，为 true 时即所有项都添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&#125;,&#123;&quot;$set&quot;:&#123;&quot;aihao&quot;:[]&#125;&#125;, &#123;multi:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>upsert $set upsert 为 true 添加新项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;CUI&quot;&#125;,&#123;&quot;$set&quot;:&#123;&quot;aihao&quot;:[]&#125;&#125;, &#123;upsert:true&#125;)  &#x2F;&#x2F; 如果 CUI 原来不存在，必须 upsert 为 true 才能添加到集合中</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、update数组修改器"><a href="#五、update数组修改器" class="headerlink" title="五、update数组修改器"></a>五、update数组修改器</h2><p>$push 追加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;,&#123;$push:&#123;&quot;aihao&quot;:&quot;shoping&quot;&#125;&#125;)  &#x2F;&#x2F; 在 aihao 项数组中添加 shoping</span><br></pre></td></tr></table></figure>
+
+<p>$ne 查找是否存在。没有则修改，有则不修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;PAN&quot;, &quot;aihao&quot;:&#123;$ne:&quot;palygame&quot;&#125;&#125;, &#123;$push:&#123;&quot;aihao&quot;:&quot;Game&quot;&#125;&#125;) &#x2F;&#x2F; ...</span><br></pre></td></tr></table></figure>
+
+<p>$addToSet 查找是否存在，不存在就 push，$ne 的升级版，工作用使用更多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;, &#123;$addToSet:&#123;&quot;aihao&quot;:&quot;跳舞&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$each 批量追加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;唱歌&#39;, &#39;跳舞&#39;, &#39;读书&#39;];</span><br><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;, &#123;$addToSet:&#123;&quot;aihao&quot;:&#123;$each:arr&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$pop 删除。1 删除末位，-1删除首位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;, &#123;$pop:&#123;&quot;aihao&quot;:1&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>数组定位修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.update(&#123;&quot;name&quot;:&quot;TING&quot;&#125;, &#123;$set:&#123;&quot;aihao.1&quot;:&quot;画画&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、修改的状态返回与安全"><a href="#六、修改的状态返回与安全" class="headerlink" title="六、修改的状态返回与安全"></a>六、修改的状态返回与安全</h2><p>runCommand 是数据库运行命令的执行器，执行命令首选就要使用它，因为它在Shell和驱动程序间提供了一致的接口。（几乎操作数据库的所有操作，都可以使用runCommand来执行）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.runCommand():</span><br><span class="line">&#x2F;&#x2F; 例如</span><br><span class="line">db.runCommand(&#123;getLastError:1&#125;&#125;):  &#x2F;&#x2F;getLastError:1 :表示返回功能错误，这里的参数很多，如果有兴趣请自行查找学习，这里不作过多介绍</span><br><span class="line">db.runCommand(&#123;ping:1&#125;&#125;):  &#x2F;&#x2F; 查看数据库链接是否成功</span><br></pre></td></tr></table></figure>
+
+<p>findAndModify<br>findAndModify 属性值  </p>
+<ol>
+<li>query: 要查询的条件/文档</li>
+<li>sort: 进行排序</li>
+<li>remove：[boolean]是否删除查找到的文档，值填写true，可以删除。</li>
+<li>new:[boolean]返回更新前的文档还是更新后的文档。</li>
+<li>fields：需要返回的字段</li>
+<li>upsert：没有这个值是否增加。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myModify &#x3D; &#123;</span><br><span class="line">  findAndModify: &quot;user&quot;,</span><br><span class="line">  query: &#123;name: &quot;PAN&quot;&#125;,</span><br><span class="line">  update: &#123;$set:&#123;age:20&#125;&#125;,</span><br><span class="line">  new: true</span><br><span class="line">&#125;</span><br><span class="line">var resultMsg &#x3D; db.runCommand(myModify)</span><br><span class="line">printjson(resultMsg)  &#x2F;&#x2F; 表示以json对象的格式输出到控制台</span><br></pre></td></tr></table></figure>
+
+<p>返回状态结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;lastErrorObject&quot; : &#123;</span><br><span class="line">        &quot;updatedExisting&quot; : true, &#x2F;&#x2F; 成功</span><br><span class="line">        &quot;n&quot; : 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;value&quot; : &#123;  &#x2F;&#x2F; 返回修改后的结果</span><br><span class="line">        &quot;_id&quot; : ObjectId(&quot;5c6d1bac1c8ca3a357fdf9a7&quot;),</span><br><span class="line">        &quot;name&quot; : &quot;PAN&quot;,</span><br><span class="line">        &quot;age&quot; : 20</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、查询：find的不等修饰符"><a href="#七、查询：find的不等修饰符" class="headerlink" title="七、查询：find的不等修饰符"></a>七、查询：find的不等修饰符</h2><p>简单查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;&quot;skill.skillOne&quot;:&quot;HTML+CSS&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>筛选字段<br>第二个参数控制显示哪些字段。示例：显示 name 和 skill.skillOne 字段，隐藏 _id 字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;&quot;skill.skillOne&quot;:&quot;HTML+CSS&quot;&#125;,&#123;name:true,&quot;skill.skillOne&quot;:true,_id:false&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>不等修饰符<br>小于($lt):  英文全称less-than<br>小于等于($lte)：英文全称less-than-equal<br>大于($gt):  英文全称greater-than<br>大于等于($gte):  英文全称greater-than-equal<br>不等于($ne):英文全称not-equal 我们现在要查找一下，公司内年龄小于30大于25岁的人员。看下面的代码。<br>示例：查询年龄大于等于 25，小于等于 30 的人  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;&quot;age&quot;:&#123;$gte:25,$lte:30&#125;&#125;,&#123;name:true,&quot;skill.skillOne&quot;:true,_id:false,age:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>查找日期<br>示例：查找日期大于2018-01-01的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var regTime &#x3D; new Date(&quot;01&#x2F;01&#x2F;2018&quot;);</span><br><span class="line">db.company.find(&#123;&quot;regeditTime&quot;:&#123;$gt:regTime&#125;&#125;,&#123;name:true,&quot;skill.skillOne&quot;:true,_id:false,age:true,regeditTime:true&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="八、查询：find的多条件查询"><a href="#八、查询：find的多条件查询" class="headerlink" title="八、查询：find的多条件查询"></a>八、查询：find的多条件查询</h2><p>$in修饰符，一键多值，注意 $in 的值是一个数组<br>示例：查找年龄等于 25 和 33 岁的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;&quot;age&quot;:&#123;$in:[25,33]&#125;&#125;,&#123;name:1,&quot;skill.skillOne&quot;:1,_id:0,age:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$in修饰符，和 $in 相反，就是不包含查询条件的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;&quot;age&quot;:&#123;$nin:[25,33]&#125;&#125;,&#123;name:1,&quot;skill.skillOne&quot;:1,_id:0,age:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$or，或者，类似JS中的或运算 ||<br>示例：查找年龄大于行于30或者技能会PHP的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;$or:[</span><br><span class="line">  &#123;age:&#123;$gte:30&#125;&#125;,</span><br><span class="line">  &#123;&quot;skill.skillThree&quot;:&quot;PHP&quot;&#125;</span><br><span class="line">]&#125;,&#123;name:1,&quot;skill.skillThree&quot;:1,_id:0,age:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$and，并且，类似JS中的或运算 &amp;&amp;<br>示例：查找年龄大于行于30并且技能会PHP的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.company.find(&#123;$and:[</span><br><span class="line">  &#123;age:&#123;$gte:30&#125;&#125;,</span><br><span class="line">  &#123;&quot;skill.skillThree&quot;:&quot;PHP&quot;&#125;</span><br><span class="line">]&#125;,&#123;name:1,&quot;skill.skillThree&quot;:1,_id:0,age:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$not修饰符<br>查找除年龄大于20岁，小于30岁的人员信息。需要注意的是$not修饰符不能应用在条件语句中，只能在外边进行查询使用。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;</span><br><span class="line">    age:&#123;</span><br><span class="line">        $not:&#123;</span><br><span class="line">            $lte:30,</span><br><span class="line">            $gte:20</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;name:1,&quot;skill.skillOne&quot;:1,age:1,_id:0&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="九、查询：find数组查询"><a href="#九、查询：find数组查询" class="headerlink" title="九、查询：find数组查询"></a>九、查询：find数组查询</h2><p>基本数组查询<br>示例：查询兴趣(interest)中有画画的人员  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;interest:&#39;画画&#39;&#125;,&#123;name:1,interest:1,_id:0&#125;)</span><br><span class="line">&#x2F;&#x2F; 如果画画加了数组的中括则表示要完全匹配条件，例如以下示例则表示要完全匹配有画画和看电影的</span><br><span class="line">db.workmate.find(&#123;interest:[&#39;画画&#39;,&#39;看电影&#39;]&#125;,&#123;name:1,interest:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$all 数组多项查询<br>示例：查询兴趣中同时存在画画和看电影两项的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;interest:&#123;$all:[&quot;画画&quot;,&quot;看电影&quot;]&#125;&#125;,&#123;name:1,interest:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$in 数组的或查询<br>类似JS的或运算，示例：查询兴趣中有画画或者看电影一项的结果  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;interest:&#123;$in:[&quot;画画&quot;,&quot;看电影&quot;]&#125;&#125;,&#123;name:1,interest:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$size 数组个数查询<br>示例：显示兴趣项长度为3的项  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;interest:&#123;$size:3&#125;&#125;,&#123;name:1,interest:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$slice 控制显示长度<br>示例：只显示兴趣数组前两项，也也接受负数，如果-1表示最后一项  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;interest:&#123;$size:3&#125;&#125;,&#123;name:1,interest:&#123;$slice:2&#125;,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="十、查询：find参数"><a href="#十、查询：find参数" class="headerlink" title="十、查询：find参数"></a>十、查询：find参数</h2><p>find查询包含以下几个参数query, fields, limit, skip, batchSize, options，前面的示例用的一直都是query和fields<br>query：这个就是查询条件，MongoDB默认的第一个参数。<br>fields：（返回内容）查询出来后显示的结果样式，可以用true和false控制是否显示。<br>limit：返回的数量，后边跟数字，控制每次查询返回的结果数量。<br>skip:跳过多少个显示，和limit结合可以实现分页。<br>sort：排序方式，从小到大排序使用1，从大到小排序使用-1  </p>
+<p>示例：limit显示4条，跳过0条  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;).limit(4).skip(0)</span><br><span class="line">如果要做分页可以如下编写</span><br><span class="line">db.workmate.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;).limit(4).skip(0)  &#x2F;&#x2F; 第一页，每页显示4条，跳过0条数据</span><br><span class="line">db.workmate.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;).limit(4).skip(4)  &#x2F;&#x2F; 第二页，每页显示4条，跳过4条数据</span><br><span class="line">db.workmate.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;).limit(4).skip(8)  &#x2F;&#x2F; 第三页，每页显示4条，跳过8条数据</span><br></pre></td></tr></table></figure>
+
+<p>示例：对年龄排序，1表示从小到大排序  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.workmate.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;).limit(4).skip(0).sort(&#123;age:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一、索引入门"><a href="#十一、索引入门" class="headerlink" title="十一、索引入门"></a>十一、索引入门</h2><p>普通查询性能测试  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var startTime &#x3D; (new Date).getTime();</span><br><span class="line"></span><br><span class="line">var db &#x3D; connect(&#39;test02&#39;);</span><br><span class="line">var rs &#x3D; db.randomInfo.find(&#123;username:&#39;dnaugkj&#39;&#125;);</span><br><span class="line">rs.forEach(rs&#x3D;&gt;&#123;printjson(rs)&#125;) </span><br><span class="line"></span><br><span class="line">var runTime &#x3D; (new Date).getTime() - startTime;</span><br><span class="line">print(&#39;[SUCCESS]This run time is:&#39;+runTime+&#39;ms&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>示例结果，大概需要600-800毫秒左右，具体结果和机器有一定关系。  </p>
+<p>查看索引  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">db.randomInfo.getIndexes()  &#x2F;&#x2F; randomInfo 为 collections 名称</span><br><span class="line">&#x2F;&#x2F; 查询结果</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;v&quot; : 2,</span><br><span class="line">        &quot;key&quot; : &#123;</span><br><span class="line">            &quot;_id&quot; : 1</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;name&quot; : &quot;_id_&quot;,</span><br><span class="line">        &quot;ns&quot; : &quot;test02.randomInfo&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;v&quot; : 2,</span><br><span class="line">        &quot;key&quot; : &#123;</span><br><span class="line">            &quot;username&quot; : 1</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;name&quot; : &quot;username_1&quot;,</span><br><span class="line">        &quot;ns&quot; : &quot;test02.randomInfo&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>建立索引<br>MongoDB 最多只能建立 64 个索引，索引会消耗硬盘和内存资源。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.randomInfo.ensureIndex(&#123;username:1&#125;)</span><br><span class="line">&#x2F;&#x2F; 如果运行正确，建立之后使用 getIndexes 即可查看</span><br></pre></td></tr></table></figure>
+<p>建立索引之后再运行一下上面普通查询的代码会发现查询速度会极大提升，约5-10毫秒左右</p>
+<p>删除索引  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.randomInfo.dropIndex(&#39;username_1&#39;);  &#x2F;&#x2F; 注意值不是 key 值，而是 name 值</span><br></pre></td></tr></table></figure>
+
+<p>查看运行时间  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.randomInfo.find(&#123;username:&#39;dnaugkj&#39;&#125;).explain(&quot;executionStats&quot;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、复合索引"><a href="#十二、复合索引" class="headerlink" title="十二、复合索引"></a>十二、复合索引</h2><p>数据不超万条时，不需要使用索引。性能的提升并不明显，而大大增加了内存和硬盘的消耗。<br>查询数据超过表数据量30%时，不要使用索引字段查询。实际证明会比不使用索引更慢，因为它大量检索了索引表和我们原表。<br>数字索引，要比字符串索引快的多，在百万级甚至千万级数据量面前，使用数字索引是个明确的选择。<br>把你经常查询的数据做成一个内嵌数据（对象型的数据），然后集体进行索引。  </p>
+<p>复合索引就是两个以上的索引  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var startTime &#x3D; (new Date).getTime();</span><br><span class="line"></span><br><span class="line">var db &#x3D; connect(&#39;test02&#39;);</span><br><span class="line">var rs &#x3D; db.randomInfo.find(&#123;username:&#39;dnaugkj&#39;, randNum0:940739&#125;);</span><br><span class="line">rs.forEach(rs&#x3D;&gt;&#123;printjson(rs)&#125;) </span><br><span class="line"></span><br><span class="line">var runTime &#x3D; (new Date).getTime() - startTime;</span><br><span class="line">print(&#39;[SUCCESS]This run time is:&#39;+runTime+&#39;ms&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>指定索引查询（hint）<br>使用 hint() 方法指定索引优先查询  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...e</span><br><span class="line">var rs &#x3D; db.randomInfo.find(&#123;username:&#39;dnaugkj&#39;, randNum0:940739&#125;).hint(&#123;randNum0:1&#125;);  &#x2F;&#x2F; randNum0 优先查询</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="十四、全文索引"><a href="#十四、全文索引" class="headerlink" title="十四、全文索引"></a>十四、全文索引</h2><p>建立全文索引  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.ensureIndex(&#123;&quot;contextInfo&quot;:&quot;text&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>全文索引查找<br>查找时需要配合两个关键修改符<br>$text:表示要在全文索引中查东西。<br>$search:后边跟查找的内容。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;$text:&#123;$search:&quot;programmer&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>多词查询<br>示例：查询包含 drink 或者 life 的记录  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;$text:&#123;$search:&quot;drink life&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以用 - 来排队不需要的记录。示例：排队带有 drink 的记录项  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;$text:&#123;$search:&quot;-drink life&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>转义符  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">想搜索的是两个词（love PlayGame和drink）</span><br><span class="line">db.info.find(&#123;$text:&#123;$search:&quot;\&quot;love PlayGame\&quot; drink&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="十五、管理-用户的创建、删除与修改"><a href="#十五、管理-用户的创建、删除与修改" class="headerlink" title="十五、管理:用户的创建、删除与修改"></a>十五、管理:用户的创建、删除与修改</h2><p>创建用户首先要进入 admin 库，show collections 只有 version 一个集合  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br><span class="line">use admin</span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
+
+<p>创建用户<br>使用 createUser 创建数据库  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123;</span><br><span class="line">  user:&quot;pan&quot;,   &#x2F;&#x2F; 用户名</span><br><span class="line">  pwd:&quot;123456&quot;, &#x2F;&#x2F; 密码</span><br><span class="line">  customData:&#123;  &#x2F;&#x2F; 个性信息</span><br><span class="line">    name:&quot;潘&quot;,</span><br><span class="line">    age:18</span><br><span class="line">  &#125;,</span><br><span class="line">  roles:[  &#x2F;&#x2F; 配置权限</span><br><span class="line">    &#123;</span><br><span class="line">      role:&#39;readWrite&#39;,  &#x2F;&#x2F; test02 有读写权限</span><br><span class="line">      db:&#39;test02&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;read&#39; &#x2F;&#x2F; 其他所有库只有吟诗权限</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>内置角色<br>数据库用户角色：read、readWrite；<br>数据库管理角色：dbAdmin、dbOwner、userAdmin;<br>集群管理角色：clusterAdmin、clusterManager、clusterMonitor、hostManage；<br>备份恢复角色：backup、restore；<br>所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase<br>超级用户角色：root<br>内部角色：__system  </p>
+<p>查找用户信息  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.system.users.find()</span><br></pre></td></tr></table></figure>
+
+<p>删除用户  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.system.users.remove(&#123;user:&quot;pan&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="十六、备份和还原"><a href="#十六、备份和还原" class="headerlink" title="十六、备份和还原"></a>十六、备份和还原</h2><p>备份  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mongodump</span><br><span class="line">    --host 127.0.0.1</span><br><span class="line">    --port 27017</span><br><span class="line">    --out D:&#x2F;databack&#x2F;backup</span><br><span class="line">    --collection myCollections</span><br><span class="line">    --db test</span><br><span class="line">    --username username</span><br><span class="line">    --password password</span><br><span class="line">mongodump --host 127.0.0.1 --port 27017 --out &#x2F;Users&#x2F;panyongyu&#x2F;Documents&#x2F;study&#x2F;mongodb&#x2F;backup</span><br></pre></td></tr></table></figure>
+
+<p>还原</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mongorestore</span><br><span class="line">    --host 127.0.0.1</span><br><span class="line">    --port 27017</span><br><span class="line">    --username username</span><br><span class="line">    --password password</span><br><span class="line">    &lt;path to the backup&gt;</span><br><span class="line">mongorestore --host 127.0.0.1 --port 27017 --out &#x2F;Users&#x2F;panyongyu&#x2F;Documents&#x2F;study&#x2F;mongodb&#x2F;backup</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://pojian.xyz/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/>https://pojian.xyz/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-25T15:47:10+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年9月25日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MongoDB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MongoDB</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://pojian.xyz/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/&title=MongoDB教程 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://pojian.xyz/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/&title=MongoDB教程 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://pojian.xyz/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/&title=MongoDB教程 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/09/03/reacthooks/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>React Hooks 入门</p>
+          <p class='content'>前言React Hooks 是 React v16.8 版本中引入的新特性，阅读本文需要一定的 React 基础。
+一、Hooks 出现的原因React 的核心是组件。v16.8 版本之前，组件...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/'>
+          <p class='title'>gitignore不起作用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>今天在项目时遇到一个问题，就是加入 ignore 的文件并不起作用，.gitignore 中已经标明忽略的文件目录下的文件，git push 的时候还会出现在 push 的目录中，原因是因为在 ...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-text">一、基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA"><span class="toc-text">新建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-text">查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-text">修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%9B%86%E5%90%88"><span class="toc-text">删除集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">删除数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8JS%E5%86%99mongo%E8%AF%AD%E5%8F%A5"><span class="toc-text">二、用JS写mongo语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5"><span class="toc-text">三、批量插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81update-%E4%BF%AE%E6%94%B9%E5%99%A8"><span class="toc-text">四、update 修改器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81update%E6%95%B0%E7%BB%84%E4%BF%AE%E6%94%B9%E5%99%A8"><span class="toc-text">五、update数组修改器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BF%AE%E6%94%B9%E7%9A%84%E7%8A%B6%E6%80%81%E8%BF%94%E5%9B%9E%E4%B8%8E%E5%AE%89%E5%85%A8"><span class="toc-text">六、修改的状态返回与安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%9F%A5%E8%AF%A2%EF%BC%9Afind%E7%9A%84%E4%B8%8D%E7%AD%89%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">七、查询：find的不等修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9F%A5%E8%AF%A2%EF%BC%9Afind%E7%9A%84%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-text">八、查询：find的多条件查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%9F%A5%E8%AF%A2%EF%BC%9Afind%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-text">九、查询：find数组查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%9F%A5%E8%AF%A2%EF%BC%9Afind%E5%8F%82%E6%95%B0"><span class="toc-text">十、查询：find参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E7%B4%A2%E5%BC%95%E5%85%A5%E9%97%A8"><span class="toc-text">十一、索引入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%A4%8D%E5%90%88%E7%B4%A2%E5%BC%95"><span class="toc-text">十二、复合索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95"><span class="toc-text">十四、全文索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E7%AE%A1%E7%90%86-%E7%94%A8%E6%88%B7%E7%9A%84%E5%88%9B%E5%BB%BA%E3%80%81%E5%88%A0%E9%99%A4%E4%B8%8E%E4%BF%AE%E6%94%B9"><span class="toc-text">十五、管理:用户的创建、删除与修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F"><span class="toc-text">十六、备份和还原</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='true'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5252425197'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2020 乘风之歌</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://i.loli.net/2020/09/24/JyTckbfQzOBxFts.jpg", "https://i.loli.net/2020/09/24/WpPI6L25JV8AxNm.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "8000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "8000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5252425197';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "",
+      appKey: "",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+(function ($) {
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+})(jQuery);
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://pojian.xyz' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://pojian.xyz' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://pojian.xyz' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<!-- more -->
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+          
+          if ('') {
+            $('').backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $('.cover-backstretch').backstretch("pause");
+            }else{
+              $('.cover-backstretch').backstretch("next");
+            }
+          } else {
+            $.backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $.backstretch("pause");
+            }else{
+              $.backstretch("next");
+            }
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

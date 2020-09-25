@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -19,7 +17,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：SSH - 乘风之歌</title>
+  <title>gitignore不起作用 - 乘风之歌</title>
+  
+    <meta name="keywords" content="Git">
   
 
   
@@ -331,7 +331,7 @@
   
     
     
-        <div class='cover-wrapper  dock' style="display: none;">
+        <div class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-backstretch'></div>
           
@@ -406,8 +406,8 @@
  
  
 <div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">false</div> 
-  <div id="pjax-pageTitle"></div> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">gitignore不起作用</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path"></div> 
   <div id="pjax-comment-placeholder"></div> 
@@ -436,87 +436,245 @@
         
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        gitignore不起作用
+      </h1>
+      <div class='new-meta-box'>
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/01/22/macsshconnection/">
-        解决Mac下SSH闲时自动断开的问题
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        使用 Mac 自带终端 SSH 连接服务器时，只要隔一小段时间不进行操作的话连接就会自动中断，造成了不好的体验。解决方法如下：
-1、连接到你的服务器
-2、编辑服务端配置文件 /etc/ssh/sshd_config
-1vim /etc/ssh/sshd_config
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://i.loli.net/2020/09/25/RVKnjUAof6kryGi.png">
+    <p>乘风</p>
+  </a>
+</div>
 
-添加以下两行配置代码
-12ClientAliveInterval 30ClientAliveCountMax 3
-
-3、编辑...
-      
-    
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' href='/'><img src='https://i.loli.net/2020/09/25/RVKnjUAof6kryGi.png'></a>
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年2月10日</p>
+  </a>
+</div>
+
+          
         
-        <time>2019-01-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Mac/">Mac</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="gitignore不起作用" data-path="/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>今天在项目时遇到一个问题，就是加入 ignore 的文件并不起作用，.gitignore 中已经标明忽略的文件目录下的文件，git push 的时候还会出现在 push 的目录中，原因是因为在 git 忽略目录中，新建的文件在 git 中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在 .gitignore 中已经声明了忽略路径也是不起作用的，这时候我们就应该先把本地缓存删除，然后再进行 git push，这样就不会出现忽略的文件了。git 清除本地缓存命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update .gitignore&#39;</span><br></pre></td></tr></table></figure>
+
+<p>完美！</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/01/22/macsshconnection/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://pojian.xyz/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/>https://pojian.xyz/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-25T15:01:03+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年9月25日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Git/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Git</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://pojian.xyz/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/&title=gitignore不起作用 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://pojian.xyz/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/&title=gitignore不起作用 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://pojian.xyz/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/&title=gitignore不起作用 - 乘风之歌&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>MongoDB教程</p>
+          <p class='content'>一、基本命令启动数据库
+1mongod
+
+进入 mongo 命令环境
+1mongo
+
+显示所有数据库
+1show dbs
+
+使用某个数据库，如果当前不存在这个数据库的话会自动新建
+1use 数据...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/02/06/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/'>
+          <p class='title'>Git使用教程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>常用命令初初始化仓库
+1git init
+
+添加文件，把文件添加到缓冲区
+1git add .
+
+提交
+1git commit -m &#39;提交日志说明&#39;
+
+查看当前仓库状态
+1gi...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -524,136 +682,14 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://i.loli.net/2020/09/24/m2fnohyLlGZdb7O.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>乘风</h2>
-        
-        
-        
-          <p><span id="jinrishici-sentence">乘风之歌</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:719625504@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Hexo/" href="/categories/Hexo/"
-            id="categoriesHexo"
-            ><div class='name'>Hexo</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Mac/" href="/categories/Mac/"
-            id="categoriesMac"
-            ><div class='name'>Mac</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B7A5E585B7"
-            ><div class='name'>工具</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
-            id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(4)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Git/" style="font-size: 24px; color: #555">Git</a> <a href="/tags/Github-Page/" style="font-size: 14px; color: #999">Github Page</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Mac/" style="font-size: 14px; color: #999">Mac</a> <a href="/tags/MongoDB/" style="font-size: 14px; color: #999">MongoDB</a> <a href="/tags/SEO/" style="font-size: 14px; color: #999">SEO</a> <a href="/tags/SSH/" style="font-size: 14px; color: #999">SSH</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 14px; color: #999">公众号</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 14px; color: #999">微信</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
       </div>

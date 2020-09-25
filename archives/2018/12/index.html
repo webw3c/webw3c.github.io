@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：SSH - 乘风之歌</title>
+  <title>归档：2018/12 - 乘风之歌</title>
   
 
   
@@ -416,14 +416,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
+  if ("half" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("none" == "half") { // 半屏 
+    if ("half" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
+    } else if ("half" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -436,11 +436,9 @@
         
         
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
@@ -460,23 +458,16 @@
   
     
     <h2 class="article-title" >
-      <a href="/2019/01/22/macsshconnection/">
-        解决Mac下SSH闲时自动断开的问题
+      <a href="/2018/12/20/hexo/">
+        超详细Hexo+Github Page搭建技术博客教程【持续更新】
       </a>
     </h2>
   
   <div class='md'>
     
       
-        使用 Mac 自带终端 SSH 连接服务器时，只要隔一小段时间不进行操作的话连接就会自动中断，造成了不好的体验。解决方法如下：
-1、连接到你的服务器
-2、编辑服务端配置文件 /etc/ssh/sshd_config
-1vim /etc/ssh/sshd_config
-
-添加以下两行配置代码
-12ClientAliveInterval 30ClientAliveCountMax 3
-
-3、编辑...
+        前言博客有第三方平台，也可以自建，比较早的有博客园、CSDN，近几年新兴的也比较多诸如：WordPress、segmentFault、简书、掘金、知乎专栏、Github Page 等等。
+这次我要说的就是 Github Page + Hexo 搭建个人博客的方式！Github Page 是 Github 提供的一种免费的静态网页托管服务（所以想想免费的空间不用也挺浪费的哈哈哈），可以用来托管...
       
     
   </div>
@@ -487,15 +478,15 @@
           
           <a class='avatar' href='/'><img src='https://i.loli.net/2020/09/25/RVKnjUAof6kryGi.png'></a>
         
-        <time>2019-01-22</time>
+        <time>2018-12-20</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Mac/">Mac</a>
+          <a class="category-link" href="/categories/Hexo/">Hexo</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2019/01/22/macsshconnection/'>
+          <a class='readmore' href='/2018/12/20/hexo/'>
             阅读全文
           </a>
         </div>
@@ -515,8 +506,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
