@@ -422,6 +422,21 @@ th {
     max-width: 100%;
   }
 }
+.cover-wrapper.dock .menu .list-h a.active {
+  background: none !important;
+}
+.widget.blogger .content >.avatar img {
+  border-radius: 50%;
+  max-width: 150px;
+  margin-top: 30px;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+}
+.widget.blogger .content >.avatar img:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
 .article span.btn,
 .md span.btn {
   display: inline;
