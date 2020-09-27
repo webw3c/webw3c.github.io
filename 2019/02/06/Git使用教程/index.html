@@ -565,7 +565,7 @@
 </li>
 <li><p>生成的公钥复制粘贴到 github。setting –&gt; SSH and GPG keys</p>
 </li>
-<li><p>关联本地仓库和Github上的仓库<br>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#x6d;</a>:webw3c/learngit.git 注意要是自己的github账户<br>如果此步出现 fatal: remote origin already exists. 提示，则先执行一次 $ git remote rm origin 命令</p>
+<li><p>关联本地仓库和Github上的仓库<br>git remote add origin <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:webw3c/learngit.git 注意要是自己的github账户<br>如果此步出现 fatal: remote origin already exists. 提示，则先执行一次 $ git remote rm origin 命令</p>
 </li>
 <li><p>git push -u origin master<br>如果此步出现<br>! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘git@github.com:blueWeekend/blue.git’<br>hint: Updates were rejected because the tip of your current branch is behind<br>hint: its remote counterpart. Merge the remote changes (e.g. ‘git pull’)<br>hint: before pushing again.<br>hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.<br>则需要先把远程仓库 pull 下来，然后强制push<br>git push -u origin master -f </p>
 </li>
@@ -573,7 +573,7 @@
 <p><img src="https://i.loli.net/2020/09/25/vculNj46LTCDf2m.png" class="lazyload" data-srcset="https://i.loli.net/2020/09/25/vculNj46LTCDf2m.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vculNj46LTCDf2m"></p>
 <br/>
 
-<h2 id="二、从远程仓库克隆"><a href="#二、从远程仓库克隆" class="headerlink" title="二、从远程仓库克隆"></a>二、从远程仓库克隆</h2><p>实际项目更多的应该是先创建远程库，然后，从远程库克隆。<br>git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:你的用户名/learngit.git</p>
+<h2 id="二、从远程仓库克隆"><a href="#二、从远程仓库克隆" class="headerlink" title="二、从远程仓库克隆"></a>二、从远程仓库克隆</h2><p>实际项目更多的应该是先创建远程库，然后，从远程库克隆。<br>git clone <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a>:你的用户名/learngit.git</p>
 <br/>
 # 分支管理
 ## 一、创建与合并分支
@@ -694,6 +694,14 @@ master 是主分支，HEAD是指向当前分支的
         </a>
       
     
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADqUlEQVR42u3aQXLjMAwEQP//09n7Vm2JA4AR1tW8xZYsonlBMPr8WKX1QQAOHDhwFjhwS+A+xRU/8PD+6nV/X3/6eVovOHDgwIEDBw7cNrgU4HSD6f2nv9eFK9cLDhw4cODAgQO3FC4toAt+en33vql6wYEDBw4cOHDgvg2uC54OStNBJThw4MCBAwcOHLheI9sNiqcOGBw4cODAgQMH7tvg0oFkNyA+PZBbcK8l+eDAgQMHDhw4cENw6eoW/Pbf5XrBgQMHDhw4cOCWwN1eTxupNri3X4T8Zz3gwIEDBw4cOHBL4LoNZTroTH83BTsFLz8XHDhw4MCBAwduCVy6oenCqoH1dGAeB9LgwIEDBw4cOHBL4Z4ePF1wdRDabdDTusCBAwcOHDhw4LbApRDpA6sN8K0XBrtBNjhw4MCBAwcO3Ba4eJDXHGxWB6fV4LkbVB//5wAOHDhw4MCBA/fLcNUN3YKqNuTVQWw5kAYHDhw4cODAgVsCV22AuwWnILf2ezwwBQcOHDhw4MCBWwI3XUga/KaBczpgnTo4cODAgQMHDhy4rXBTL+51A+PqAUx9Hyf54MCBAwcOHDhwL8F1G8Ruw5s2xtWVNsbjE2Bw4MCBAwcOHLhLcLcC5LTB7B5gOihNG3dw4MCBAwcOHLgtcE8bqw4iu9/HBR02uO37wYEDBw4cOHDglsB1g+juYLEbJHcb2rixBwcOHDhw4MCB+0/g0sHhFES1se0e0FgDDA4cOHDgwIED90twUw+oHkQ3kK423Ol14MCBAwcOHDhwW+DSxrUbOFcParqxrh4IOHDgwIEDBw7cFrjq4LLbSFYHke3CH8AfPwcHDhw4cODAgVsC191A+uBq0Jz+fveAwIEDBw4cOHDgtsPdHkBOB9HTjXBcFzhw4MCBAwcO3BK47uCxOqhMg+fq9eng9fGAwIEDBw4cOHDglsCdFpQGuunAs3tAU8CPoODAgQMHDhw4cEvgpgaNaUHV3+0Gyt3AGxw4cODAgQMHbgvc9CCwO9CcDqinGnhw4MCBAwcOHLitcNWNTw1Au43t1KA0boDBgQMHDhw4cOCWwKUB8ilkF7QbeKeNPThw4MCBAwcO3LfDTRfSHZCeNvTloBwcOHDgwIEDB+5L4KYC7LQRHYNI6wcHDhw4cODAgVsKVw2kyy/qNRvgKni10QcHDhw4cODAgdsG1w1uq0F0t0E+BfwJ13EDDA4cOHDgwIED9xKcFYIiAAcOHDgLHLh31x8ogX+mY5PzTwAAAABJRU5ErkJggg==">
+          </div>
+        </div>
       
     
       
