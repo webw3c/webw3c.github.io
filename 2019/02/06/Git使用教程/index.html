@@ -46,6 +46,8 @@
   
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
 
   
 
@@ -329,7 +331,7 @@
   
     
     
-        <div class='cover-wrapper post dock' style="display: none;">
+        <div class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-backstretch'></div>
           
@@ -344,6 +346,14 @@
     
   </div>
   <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜一下" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
     <div class='menu navigation'>
       <div class='list-h'>
         
@@ -563,7 +573,7 @@
 </li>
 <li><p>生成的公钥复制粘贴到 github。setting –&gt; SSH and GPG keys</p>
 </li>
-<li><p>关联本地仓库和Github上的仓库<br>git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a>:webw3c/learngit.git 注意要是自己的github账户<br>如果此步出现 fatal: remote origin already exists. 提示，则先执行一次 $ git remote rm origin 命令</p>
+<li><p>关联本地仓库和Github上的仓库<br>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:webw3c/learngit.git 注意要是自己的github账户<br>如果此步出现 fatal: remote origin already exists. 提示，则先执行一次 $ git remote rm origin 命令</p>
 </li>
 <li><p>git push -u origin master<br>如果此步出现<br>! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘git@github.com:blueWeekend/blue.git’<br>hint: Updates were rejected because the tip of your current branch is behind<br>hint: its remote counterpart. Merge the remote changes (e.g. ‘git pull’)<br>hint: before pushing again.<br>hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.<br>则需要先把远程仓库 pull 下来，然后强制push<br>git push -u origin master -f </p>
 </li>
@@ -571,7 +581,7 @@
 <p><img src="https://i.loli.net/2020/09/25/vculNj46LTCDf2m.png" class="lazyload" data-srcset="https://i.loli.net/2020/09/25/vculNj46LTCDf2m.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vculNj46LTCDf2m"></p>
 <br/>
 
-<h2 id="二、从远程仓库克隆"><a href="#二、从远程仓库克隆" class="headerlink" title="二、从远程仓库克隆"></a>二、从远程仓库克隆</h2><p>实际项目更多的应该是先创建远程库，然后，从远程库克隆。<br>git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:你的用户名/learngit.git</p>
+<h2 id="二、从远程仓库克隆"><a href="#二、从远程仓库克隆" class="headerlink" title="二、从远程仓库克隆"></a>二、从远程仓库克隆</h2><p>实际项目更多的应该是先创建远程库，然后，从远程库克隆。<br>git clone <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>:你的用户名/learngit.git</p>
 <br/>
 # 分支管理
 ## 一、创建与合并分支
@@ -794,6 +804,22 @@ master 是主分支，HEAD是指向当前分支的
         <div class="aplayer-container">
           
 
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.6'
+      loop='all'
+      order='random'
+      fixed=''
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5252425197'
+      list-folded=''>
+    </meting-js>
+  
+
 
         </div>
       
@@ -980,6 +1006,26 @@ master 是主分支，HEAD是指向当前分支的
         
       
         
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
       
     </ul>
   </div>
@@ -1084,7 +1130,7 @@ master 是主分支，HEAD是指向当前分支的
       }
 
       // 有音乐播放器
-      if ('' == true && ('home,print,hr,music'||[]).includes('music')) {
+      if ('true' == true && ('home,print,hr,music'||[]).includes('music')) {
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
@@ -1179,6 +1225,28 @@ master 是主分支，HEAD是指向当前分支的
     pjax_scrollrebeal();
   });
 </script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5252425197';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.6';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
 
 
 

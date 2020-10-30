@@ -46,6 +46,8 @@
   
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
 
   
 
@@ -329,7 +331,7 @@
   
     
     
-        <div class='cover-wrapper post dock' style="display: none;">
+        <div class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-backstretch'></div>
           
@@ -344,6 +346,14 @@
     
   </div>
   <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="搜一下" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
     <div class='menu navigation'>
       <div class='list-h'>
         
@@ -897,6 +907,22 @@
         <div class="aplayer-container">
           
 
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.6'
+      loop='all'
+      order='random'
+      fixed=''
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5252425197'
+      list-folded=''>
+    </meting-js>
+  
+
 
         </div>
       
@@ -1083,6 +1109,26 @@
         
       
         
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
       
     </ul>
   </div>
@@ -1187,7 +1233,7 @@
       }
 
       // 有音乐播放器
-      if ('' == true && ('home,print,hr,music'||[]).includes('music')) {
+      if ('true' == true && ('home,print,hr,music'||[]).includes('music')) {
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
@@ -1282,6 +1328,28 @@
     pjax_scrollrebeal();
   });
 </script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5252425197';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.6';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
 
 
 
