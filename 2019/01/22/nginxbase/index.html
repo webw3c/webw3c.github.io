@@ -647,7 +647,7 @@
 <p><img src="http://ws3.sinaimg.cn/large/889d1a94gy1fzhshp7dttj216405ogm3.jpg" class="lazyload" data-srcset="http://ws3.sinaimg.cn/large/889d1a94gy1fzhshp7dttj216405ogm3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image"></p>
 <p>原来的 root 和 index 不要了，换成一个 location 代理地址，看下图</p>
 <p><img src="http://wx2.sinaimg.cn/large/889d1a94gy1fziv0a4rtyj21cs05udk2.jpg" class="lazyload" data-srcset="http://wx2.sinaimg.cn/large/889d1a94gy1fziv0a4rtyj21cs05udk2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image"></p>
-<p>这样当你访问 nginx2.pojian.xyz 的时候 nginx 会帮你反向代理到 <a href="https://pojian.xyz/">https://pojian.xyz</a> 这个地址上去，proxy_pass 一般是填写 ip，但填写域名也可以。</p>
+<p>这样当你访问 nginx2.pojian.xyz 的时候 nginx 会帮你反向代理到 <a target="_blank" rel="noopener" href="https://pojian.xyz/">https://pojian.xyz</a> 这个地址上去，proxy_pass 一般是填写 ip，但填写域名也可以。</p>
 <p><strong>其它一些较常用的反向代理指令</strong></p>
 <ul>
 <li>proxy_set_header: 在将客户端请求发送给后端服务器之前，更改来自客户端的请求头信息。</li>
@@ -688,7 +688,7 @@
               
             
               
-                <p>本文永久链接是：<a href=https://pojian.xyz/2019/01/22/nginxbase/>https://pojian.xyz/2019/01/22/nginxbase/</a></p>
+                <p>本文永久链接是：<a href=https://showjs.github.io/2019/01/22/nginxbase/>https://showjs.github.io/2019/01/22/nginxbase/</a></p>
               
             
           </blockquote>
@@ -722,7 +722,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://pojian.xyz/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://showjs.github.io/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
           
           >
           
@@ -734,7 +734,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://pojian.xyz/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://showjs.github.io/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
           
           >
           
@@ -746,7 +746,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://pojian.xyz/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://showjs.github.io/2019/01/22/nginxbase/&title=Nginx 入门篇 - 乘风之歌&summary="
           
           >
           
@@ -760,7 +760,7 @@
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC+UlEQVR42u3aQXIbMQwEQP//0849FRWJAVYlRM2brdWSaF2mAP78Wv9cPwjAgAEDBgyYNTA/4SpvePje359Xn5+qBwwYMGDAgAGzD6Zb4MuNbg8UQqTPvfxBwIABAwYMGDBrYaoFTBd+gq8Gw3I9YMCAAQMGDJivg+k2kh4LbGDAgAEDBgwYMM1A1QXtBj4wYMCAAQMGzP8PkwaoW5gp+I+fRIIBAwYMGDBg3gbzrkLe9XdcDxgwYMCAAQNmDUx3VQPX7aCtG9ziesCAAQMGDBgwa2DSgJRCdAPk1H5gwIABAwYMmP0wp+DVHXClwSx976mO64tDYMCAAQMGDJh1MKeDdDdO/z/1vlPQAwMGDBgwYMDsg+kGtLSRVW1AVfetNqzAgAEDBgwYMPthqkHuNghOBbynzgEGDBgwYMCA2QczNRi7BX0KsNuwAgMGDBgwYMDsgekGpm7AShtP1UHgNSAYMGDAgAEDZg1M90BTDaUubHqxCQwYMGDAgAGzF6YbwG6D31QDq/ve64EbGDBgwIABA2YNTDXQpQO06QtB3YAHBgwYMGDAgNkPkx5o+gJRum83aIIBAwYMGDBg9sOcAthtUEuDV1pgd4EBAwYMGDBg9sJ0B2xTA7T0QlHa2DoGPDBgwIABAwbMx8NMFfRUAyltmJUDKRgwYMCAAQNmHUx1UJYGqWpAS4NgDAsGDBgwYMCAWQuTDtJ+i6u6bxowyz8cGDBgwIABA2YtTHXQlQbD6gWjtLFWDoBgwIABAwYMmDUw3fXUQVPg2/ccAx4YMGDAgAED5uNhpgqbei4NdlWI64EbGDBgwIABA+bjYdJBWRVkOpjdvuexSSQYMGDAgAED5mNg0gDVPeB1ALs8bzwgBAMGDBgwYMB8HUw1uD0F1A2kYMCAAQMGDJjvg+kO4qYuDN3u83J/MGDAgAEDBsxamOrArQravejThT1+HwwYMGDAgAGzDmZ8cBUGsup+1QB4PA8YMGDAgAEDZg2MBQYMGDBgwIBZtv4A+LNknXRUT4EAAAAASUVORK5CYII=">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAADA0lEQVR42u3awXIqMQwEQP7/p1/ueaHWGmkpBO0bWa+xmxymJD/+GX+OBwIwYMCAAQNmDcwjHP8tePH897zq56t1p84DBgwYMGDAgNkHcxyALg5yusHqeils+TxgwIABAwYMmLUw6UG6B7parwt9PB8MGDBgwIAB83Uw1cLVVFAEAwYMGDBgwIBJF6oGtLTRVoUEAwYMGDBgwHwfTLVBdfr8tACVfu/bdSLBgAEDBgwYMC+DqY5ucLv7c3weMGDAgAEDBswamO44LRilha5q4al9HjBgwIABAwbMGph2YScsIHUbe1Wo43lgwIABAwYMmHUw1eCUXuRJG3BpsKueDwwYMGDAgAGzBybdUPXA3XnVQlf8PhgwYMCAAQNmDUw1YE0FuO7Bpi8QgQEDBgwYMGD2wqQFom7DKw2K3YB5HPDAgAEDBgwYMG8LUw1S3cJWWgirBs70AhEYMGDAgAEDZg/MXQWf08JUdf5UYezp38GAAQMGDBgwa2CqBaepQFVdP23AVYMiGDBgwIABA2YPTFqgSgtX3fdO95UGUDBgwIABAwbMHpiphcsbGGrUTf0AYMCAAQMGDJjPgUkv7FQbZ1MXkNIfGgwYMGDAgAGzH+bVja50pEHyOIiCAQMGDBgwYNbApAWk6aCWwqf7egoPBgwYMGDAgPk4mGrBqVrgSht8aQAFAwYMGDBgwHwuzGkhaOoiT9rIqwJevgcGDBgwYMCAWQ9TDXhp4y5t/HULYC9LvmDAgAEDBgyY22G6BaKpDab7Gft+MGDAgAEDBswamO6oBrZucJsKmE/BwIABAwYMGDBrYLpB6XSdadDqBaKxQhUYMGDAgAED5u1guoHuNGi1G2KH8DEkGDBgwIABA2YtzPTG0+fTBa7TfwAwYMCAAQMGzPfBpAeeLpBVz3F7wAMDBgwYMGDArIWZWi9ttJX3CwYMGDBgwIBZC5M23O5umE019i7fBwMGDBgwYMCsg0kLRmmwii/2FAtY5QtQYMCAAQMGDJg1MAYYMGDAgAEDZtn4AU5gJr+UcPxtAAAAAElFTkSuQmCC">
           </div>
         </div>
       
@@ -1518,7 +1518,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://pojian.xyz' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'https://showjs.github.io' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1536,7 +1536,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://pojian.xyz' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'https://showjs.github.io' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1558,7 +1558,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'https://pojian.xyz' + pv.getAttribute('data-path');
+          var url = 'https://showjs.github.io' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
