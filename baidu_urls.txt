@@ -1,3 +1,3 @@
-https://webw3c.github.io/2019/04/15/jscopy/
-https://webw3c.github.io/2019/04/07/jsprototype/
-https://webw3c.github.io/2019/04/02/jsdata/
+https://showjs.cc/2019/04/15/jscopy/
+https://showjs.cc/2019/04/07/jsprototype/
+https://showjs.cc/2019/04/02/jsdata/
