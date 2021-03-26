@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://webw3c.github.io/2019/02/24/jscopy/</loc>
-    <lastmod>2021-03-25</lastmod>
+    <loc>https://webw3c.github.io/2019/04/15/jscopy/</loc>
+    <lastmod>2021-03-26</lastmod>
   </url>
   <url>
-    <loc>https://webw3c.github.io/2019/02/18/jsdata/</loc>
-    <lastmod>2021-03-25</lastmod>
+    <loc>https://webw3c.github.io/2019/04/07/jsprototype/</loc>
+    <lastmod>2021-03-26</lastmod>
   </url>
   <url>
-    <loc>https://webw3c.github.io/2019/03/20/jsprototype/</loc>
-    <lastmod>2021-03-25</lastmod>
+    <loc>https://webw3c.github.io/2019/04/02/jsdata/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>
+  <url>
+    <loc>https://webw3c.github.io/2019/03/29/reacthooks/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>
+  <url>
+    <loc>https://webw3c.github.io/2019/02/26/MongoDB%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2021-03-26</lastmod>
   </url>
   <url>
     <loc>https://webw3c.github.io/2018/12/20/hexo/</loc>
-    <lastmod>2020-09-25</lastmod>
-  </url>
-  <url>
-    <loc>https://webw3c.github.io/2019/02/20/MongoDB%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2020-09-25</lastmod>
   </url>
   <url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://webw3c.github.io/2019/01/22/nginxbase/</loc>
     <lastmod>2020-09-25</lastmod>
-  </url>
-  <url>
-    <loc>https://webw3c.github.io/2019/09/03/reacthooks/</loc>
-    <lastmod>2019-09-03</lastmod>
   </url>
   <url>
     <loc>https://webw3c.github.io/2019/01/24/wechatnoaccess/</loc>
