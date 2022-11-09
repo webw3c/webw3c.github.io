@@ -3,11 +3,11 @@
   <title>乘风之歌</title>
   
   <subtitle>路漫漫其修远兮，吾将上下而求索</subtitle>
-  <link href="https://showjs.cc/atom.xml" rel="self"/>
+  <link href="https://geekweb.site/atom.xml" rel="self"/>
   
-  <link href="https://showjs.cc/"/>
+  <link href="https://geekweb.site/"/>
   <updated>2022-11-09T02:45:02.000Z</updated>
-  <id>https://showjs.cc/</id>
+  <id>https://geekweb.site/</id>
   
   <author>
     <name>PAN</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>测试文章写作</title>
-    <link href="https://showjs.cc/2022/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C/"/>
-    <id>https://showjs.cc/2022/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C/</id>
+    <link href="https://geekweb.site/2022/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C/"/>
+    <id>https://geekweb.site/2022/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C/</id>
     <published>2022-11-09T02:37:00.000Z</published>
     <updated>2022-11-09T02:45:02.000Z</updated>
     
@@ -33,15 +33,15 @@
     
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/categories/JavaScript/"/>
     
     
   </entry>
   
   <entry>
     <title>如何实现一个深浅拷贝</title>
-    <link href="https://showjs.cc/2019/04/15/jscopy/"/>
-    <id>https://showjs.cc/2019/04/15/jscopy/</id>
+    <link href="https://geekweb.site/2019/04/15/jscopy/"/>
+    <id>https://geekweb.site/2019/04/15/jscopy/</id>
     <published>2019-04-15T13:11:06.000Z</published>
     <updated>2021-03-26T03:33:11.470Z</updated>
     
@@ -55,21 +55,21 @@
     
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/categories/JavaScript/"/>
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/tags/JavaScript/"/>
     
-    <category term="浅拷贝" scheme="https://showjs.cc/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    <category term="浅拷贝" scheme="https://geekweb.site/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
     
-    <category term="深拷贝" scheme="https://showjs.cc/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <category term="深拷贝" scheme="https://geekweb.site/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
     
   </entry>
   
   <entry>
     <title>JS原型和原型链</title>
-    <link href="https://showjs.cc/2019/04/07/jsprototype/"/>
-    <id>https://showjs.cc/2019/04/07/jsprototype/</id>
+    <link href="https://geekweb.site/2019/04/07/jsprototype/"/>
+    <id>https://geekweb.site/2019/04/07/jsprototype/</id>
     <published>2019-04-07T04:30:08.000Z</published>
     <updated>2021-03-26T03:32:49.787Z</updated>
     
@@ -84,25 +84,25 @@
     
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/categories/JavaScript/"/>
     
     
-    <category term="原型" scheme="https://showjs.cc/tags/%E5%8E%9F%E5%9E%8B/"/>
+    <category term="原型" scheme="https://geekweb.site/tags/%E5%8E%9F%E5%9E%8B/"/>
     
-    <category term="原型链" scheme="https://showjs.cc/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <category term="原型链" scheme="https://geekweb.site/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
-    <category term="prototype" scheme="https://showjs.cc/tags/prototype/"/>
+    <category term="prototype" scheme="https://geekweb.site/tags/prototype/"/>
     
-    <category term="__proto__" scheme="https://showjs.cc/tags/proto/"/>
+    <category term="__proto__" scheme="https://geekweb.site/tags/proto/"/>
     
-    <category term="constructor" scheme="https://showjs.cc/tags/constructor/"/>
+    <category term="constructor" scheme="https://geekweb.site/tags/constructor/"/>
     
   </entry>
   
   <entry>
     <title>JS的数据类型</title>
-    <link href="https://showjs.cc/2019/04/02/jsdata/"/>
-    <id>https://showjs.cc/2019/04/02/jsdata/</id>
+    <link href="https://geekweb.site/2019/04/02/jsdata/"/>
+    <id>https://geekweb.site/2019/04/02/jsdata/</id>
     <published>2019-04-02T03:22:00.000Z</published>
     <updated>2022-11-09T02:46:14.329Z</updated>
     
@@ -116,19 +116,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/categories/JavaScript/"/>
     
     
-    <category term="JavaScript" scheme="https://showjs.cc/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://geekweb.site/tags/JavaScript/"/>
     
-    <category term="数据类型" scheme="https://showjs.cc/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <category term="数据类型" scheme="https://geekweb.site/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     
   </entry>
   
   <entry>
     <title>React Hooks 入门</title>
-    <link href="https://showjs.cc/2019/03/29/reacthooks/"/>
-    <id>https://showjs.cc/2019/03/29/reacthooks/</id>
+    <link href="https://geekweb.site/2019/03/29/reacthooks/"/>
+    <id>https://geekweb.site/2019/03/29/reacthooks/</id>
     <published>2019-03-29T07:53:13.000Z</published>
     <updated>2021-03-26T03:32:17.830Z</updated>
     
@@ -147,8 +147,8 @@
   
   <entry>
     <title>MongoDB教程</title>
-    <link href="https://showjs.cc/2019/02/26/MongoDB%E6%95%99%E7%A8%8B/"/>
-    <id>https://showjs.cc/2019/02/26/MongoDB%E6%95%99%E7%A8%8B/</id>
+    <link href="https://geekweb.site/2019/02/26/MongoDB%E6%95%99%E7%A8%8B/"/>
+    <id>https://geekweb.site/2019/02/26/MongoDB%E6%95%99%E7%A8%8B/</id>
     <published>2019-02-25T16:15:33.000Z</published>
     <updated>2021-03-26T03:31:51.597Z</updated>
     
@@ -163,17 +163,17 @@
     
     
     
-    <category term="编程" scheme="https://showjs.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://geekweb.site/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="MongoDB" scheme="https://showjs.cc/tags/MongoDB/"/>
+    <category term="MongoDB" scheme="https://geekweb.site/tags/MongoDB/"/>
     
   </entry>
   
   <entry>
     <title>gitignore不起作用</title>
-    <link href="https://showjs.cc/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/"/>
-    <id>https://showjs.cc/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/</id>
+    <link href="https://geekweb.site/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/"/>
+    <id>https://geekweb.site/2019/02/10/gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/</id>
     <published>2019-02-10T02:28:09.000Z</published>
     <updated>2020-09-25T07:01:03.179Z</updated>
     
@@ -187,17 +187,17 @@
     
     
     
-    <category term="编程" scheme="https://showjs.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://geekweb.site/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="Git" scheme="https://showjs.cc/tags/Git/"/>
+    <category term="Git" scheme="https://geekweb.site/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>Git使用教程</title>
-    <link href="https://showjs.cc/2019/02/06/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-    <id>https://showjs.cc/2019/02/06/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <link href="https://geekweb.site/2019/02/06/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://geekweb.site/2019/02/06/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
     <published>2019-02-06T06:07:15.000Z</published>
     <updated>2020-09-25T06:53:36.808Z</updated>
     
@@ -212,17 +212,17 @@
     
     
     
-    <category term="编程" scheme="https://showjs.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://geekweb.site/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="Git" scheme="https://showjs.cc/tags/Git/"/>
+    <category term="Git" scheme="https://geekweb.site/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>非微信官方网页，继续访问将转换成手机预览模式</title>
-    <link href="https://showjs.cc/2019/01/24/wechatnoaccess/"/>
-    <id>https://showjs.cc/2019/01/24/wechatnoaccess/</id>
+    <link href="https://geekweb.site/2019/01/24/wechatnoaccess/"/>
+    <id>https://geekweb.site/2019/01/24/wechatnoaccess/</id>
     <published>2019-01-24T02:03:36.000Z</published>
     <updated>2019-08-12T06:23:23.717Z</updated>
     
@@ -237,19 +237,19 @@
     
     
     
-    <category term="工具" scheme="https://showjs.cc/categories/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://geekweb.site/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="微信" scheme="https://showjs.cc/tags/%E5%BE%AE%E4%BF%A1/"/>
+    <category term="微信" scheme="https://geekweb.site/tags/%E5%BE%AE%E4%BF%A1/"/>
     
-    <category term="公众号" scheme="https://showjs.cc/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    <category term="公众号" scheme="https://geekweb.site/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
   </entry>
   
   <entry>
     <title>Nginx 入门篇</title>
-    <link href="https://showjs.cc/2019/01/22/nginxbase/"/>
-    <id>https://showjs.cc/2019/01/22/nginxbase/</id>
+    <link href="https://geekweb.site/2019/01/22/nginxbase/"/>
+    <id>https://geekweb.site/2019/01/22/nginxbase/</id>
     <published>2019-01-22T11:09:40.000Z</published>
     <updated>2020-09-25T06:50:58.238Z</updated>
     
@@ -268,19 +268,19 @@
     
     
     
-    <category term="编程" scheme="https://showjs.cc/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://geekweb.site/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="nginx" scheme="https://showjs.cc/tags/nginx/"/>
+    <category term="nginx" scheme="https://geekweb.site/tags/nginx/"/>
     
-    <category term="centos" scheme="https://showjs.cc/tags/centos/"/>
+    <category term="centos" scheme="https://geekweb.site/tags/centos/"/>
     
   </entry>
   
   <entry>
     <title>解决Mac下SSH闲时自动断开的问题</title>
-    <link href="https://showjs.cc/2019/01/22/macsshconnection/"/>
-    <id>https://showjs.cc/2019/01/22/macsshconnection/</id>
+    <link href="https://geekweb.site/2019/01/22/macsshconnection/"/>
+    <id>https://geekweb.site/2019/01/22/macsshconnection/</id>
     <published>2019-01-22T10:32:19.000Z</published>
     <updated>2019-01-22T10:53:31.152Z</updated>
     
@@ -297,19 +297,19 @@
     
     
     
-    <category term="Mac" scheme="https://showjs.cc/categories/Mac/"/>
+    <category term="Mac" scheme="https://geekweb.site/categories/Mac/"/>
     
     
-    <category term="Mac" scheme="https://showjs.cc/tags/Mac/"/>
+    <category term="Mac" scheme="https://geekweb.site/tags/Mac/"/>
     
-    <category term="SSH" scheme="https://showjs.cc/tags/SSH/"/>
+    <category term="SSH" scheme="https://geekweb.site/tags/SSH/"/>
     
   </entry>
   
   <entry>
     <title>超详细Hexo+Github Page搭建技术博客教程【持续更新】</title>
-    <link href="https://showjs.cc/2018/12/20/hexo/"/>
-    <id>https://showjs.cc/2018/12/20/hexo/</id>
+    <link href="https://geekweb.site/2018/12/20/hexo/"/>
+    <id>https://geekweb.site/2018/12/20/hexo/</id>
     <published>2018-12-20T02:12:06.000Z</published>
     <updated>2020-09-25T10:29:01.844Z</updated>
     
@@ -323,14 +323,14 @@
     
     
     
-    <category term="Hexo" scheme="https://showjs.cc/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://geekweb.site/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://showjs.cc/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://geekweb.site/tags/Hexo/"/>
     
-    <category term="Github Page" scheme="https://showjs.cc/tags/Github-Page/"/>
+    <category term="Github Page" scheme="https://geekweb.site/tags/Github-Page/"/>
     
-    <category term="SEO" scheme="https://showjs.cc/tags/SEO/"/>
+    <category term="SEO" scheme="https://geekweb.site/tags/SEO/"/>
     
   </entry>
   
